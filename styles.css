@@ -1,0 +1,517 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&display=swap');
+
+body {
+    background: linear-gradient(300deg, #020059, #001542, #07b378);
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+    overflow-x: hidden;
+    padding-top: 30px;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Adding smooth transition to all fade-up elements */
+@keyframes fade-up {
+    0% {
+        opacity: 0;
+        transform: translateY(50px); /* Initial position lower */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Final position */
+    }
+}
+
+.fade-up {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Other styles, keep your current layout styles */
+
+
+.navbar {
+    color: white;
+    padding: 10px 20px;
+}
+
+.navbar nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    margin-left: 50px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 0px;
+}
+
+/* More of your existing CSS below... */
+
+
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    padding: 3px 0px;
+    transition: background-color 0.3s;
+    font-family: 'Kanit', sans-serif;
+    font-weight: bolder;
+    margin-right: 100px;
+    font-size: larger;
+}
+
+.nav-links li a:hover {
+    color: #0e0020;
+}
+
+.heading {
+    text-align: center;
+    margin-top: 100px;
+    font-family: 'Press Start 2P', sans-serif;
+    color: #ffffff;
+    font-size: 50px;
+}
+
+.explore-cont {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.explore {
+    height: 40px;
+    width: 200px;
+    border-radius: 30px;
+    border: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bolder;
+    position: relative;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #0e0020; /* Original button color */
+    border: none;
+    cursor: pointer;
+    overflow: hidden; /* Prevent overflow */
+    z-index: 1; /* Ensure text is above the pseudo-element */
+    transition: color 0.3s; /* Transition for text color */
+}
+
+.explore::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: #006A67; /* New color */
+    transform: translateX(-50%) scaleX(0); /* Start scale at 0 */
+    transition: transform 0.3s ease; /* Smooth transition */
+    z-index: -1; /* Behind the text */
+}
+
+.explore:hover::after {
+    transform: translateX(-50%) scaleX(1); /* Expand to full width on hover */
+}
+
+.ad-cont {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ad {
+    position: relative;
+    width: 600px;
+    height: 200px;
+    margin-top: 50px;
+    border-radius: 30px;
+    border: 2px solid white;
+    overflow: hidden; /* Ensures content doesn't overflow beyond the rounded corners */
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out; /* Smooth animations for transform and box-shadow */
+    transform-origin: center; /* Ensure the scaling happens from the center */
+}
+
+.ad::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    filter: blur(8px);
+    z-index: -1;
+    transition: filter 0.5s ease-in-out; /* Optional: Smooth blur transition */
+}
+
+.ad:hover {
+    cursor: pointer;
+    box-shadow: 0 0 15px 4px rgba(255, 255, 255, 0.8); /* Glowing border effect */
+}
+
+.new-tag {
+    position: absolute;
+    top: 10px;   /* Adjust position */
+    left: 10px;  /* Adjust position */
+    background-color: #0e0020; /* Background color */
+    color: white;  /* Text color */
+    padding: 5px 15px; /* Padding to make it rectangular */
+    font-weight: bold;
+    border-radius: 15px; /* Rounded corners for the tag */
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow */
+    margin-left: 500px;
+    height: 25px;
+    width: 40px;
+    text-align: center;
+    font-family: 'Kanit', sans-serif;
+}
+
+.upcoming {
+    color: white;
+    font-family: 'Kanit', sans-serif;
+    margin-left: 20px;
+}
+
+.upcome-para {
+    color: white;
+    font-family: 'Kanit', sans-serif;
+    margin-left: 20px;
+}
+
+.ad i {
+    margin-left: 550px;
+    font-size: 20px;
+    color: white;
+}
+
+.about-us {
+    width: 97%;
+    background-color: #0e0020;  /* Dark background color */
+    color: white;
+    margin-top: 250px;
+    border-radius: 30px;
+    padding: 40px 20px;
+    position: relative;  /* For positioning pseudo-elements */
+    overflow: hidden;    /* To ensure the lines don't spill outside the container */
+    z-index: 1; /* Ensure text appears on top */
+    overflow: hidden; /* Ensures content doesn't overflow beyond the rounded corners */
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out; /* Smooth animations for transform and box-shadow */
+    transform-origin: center; /* Ensure the scaling happens from the center */
+}
+
+.about-us::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    filter: blur(8px);
+    z-index: -1;
+    transition: filter 0.5s ease-in-out; /* Optional: Smooth blur transition */
+}
+
+.about-us:hover {
+    cursor: pointer;
+    box-shadow: 0 0 15px 4px rgba(0, 113, 141, 0.8); /* Glowing border effect */
+}
+
+.about-us::before,
+.about-us::after,
+.about-us .line {
+    content: '';
+    position: absolute;
+    background-color: #006A67;  /* Dark blue lines */
+    height: 15px;  /* Thickness of the stripes */
+    width: 150%;   /* Full width of the container (extend beyond container) */
+    z-index: -1;   /* Ensure lines are behind the text */
+}
+
+.about-us::before {
+    transform: rotate(-45deg);  /* Rotate the first stripe */
+    top: -10%;  /* Position from the top */
+    left: -25%; /* Start from outside the left side */
+}
+
+.about-us::after {
+    transform: rotate(45deg);  /* Rotate the second stripe */
+    top: 30%;  /* Position in the middle */
+    left: -25%; /* Start from outside the left side */
+}
+
+.about-us .line {
+    transform: rotate(90deg);  /* Third vertical stripe */
+    top: 50%; /* Position it slightly lower */
+    left: 50%;  /* Position it in the center */
+    width: 15px;  /* Stripe thickness */
+    height: 150%; /* Full height of the container */
+}
+
+/* Title */
+.about-hexnova {
+    font-family: 'Kanit', sans-serif;
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2; /* Ensure the title stays above the stripes */
+}
+
+/* Single Column Layout for About Us */
+.about-para {
+    font-family: 'Kanit', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: white;
+    text-align: center;  /* Center the text */
+    padding: 0 20px;
+    max-width: 800px;     /* Max width for readability */
+    margin: 0 auto;       /* Center the content */
+    position: relative;
+    z-index: 2; /* Ensure the paragraph stays above the stripes */
+}
+
+
+.projects-heading {
+    margin-top: 250px;
+    text-align: center;
+    font-family: 'Kanit', sans-serif;
+    color: white;
+}
+
+/* .cards-container to align both cards */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Space between cards */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    margin-top: 20px;
+}
+
+/* Card styles */
+.card, .card2, .card3 {
+    height: 500px;
+    width: 400px;
+    background: #0e0020;
+    border-radius: 30px;
+    color: white;
+    padding-top: 20px;
+    font-family: 'Kanit', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    overflow: hidden; /* Ensures content doesn't overflow beyond the rounded corners */
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out; /* Smooth animations for transform and box-shadow */
+    transform-origin: center; /* Ensure the scaling happens from the center */
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    filter: blur(8px);
+    z-index: -1;
+    transition: filter 0.5s ease-in-out; /* Optional: Smooth blur transition */
+}
+
+.card2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    filter: blur(8px);
+    z-index: -1;
+    transition: filter 0.5s ease-in-out; /* Optional: Smooth blur transition */
+}
+
+.card3::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    filter: blur(8px);
+    z-index: -1;
+    transition: filter 0.5s ease-in-out; /* Optional: Smooth blur transition */
+}
+
+.card:hover {
+    cursor: pointer;
+    box-shadow: 0 0 15px 4px rgba(0, 113, 141, 0.8); /* Glowing border effect */
+}
+
+.card2:hover {
+    cursor: pointer;
+    box-shadow: 0 0 15px 4px rgba(0, 113, 141, 0.8); /* Glowing border effect */
+}
+
+.card3:hover {
+    cursor: pointer;
+    box-shadow: 0 0 15px 4px rgba(0, 113, 141, 0.8); /* Glowing border effect */
+}
+
+/* Text inside cards */
+.card h1, .card2 h1, .card3 h1 {
+    text-align: center;
+    font-size: 24px;
+}
+
+.card p, .card2 p, .card3 p {
+    color: gray;
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0 auto;
+    max-width: 80%;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* Button inside cards */
+.card button, .card2 button, .card3 button {
+    background-color: #006A67;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block;
+    text-align: center;
+}
+
+.card button:hover, .card2 button:hover, .card3 button:hover {
+    background-color: #003130;
+}
+
+.phrase {
+    width: 100%;
+    height: 200px;
+    background: #0e0020;
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+    margin-top: 250px;
+    border-radius: 30px;
+    overflow: hidden; /* Ensures content doesn't overflow beyond the rounded corners */
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out; /* Smooth animations for transform and box-shadow */
+    transform-origin: center; /* Ensure the scaling happens from the center */
+}
+
+.phrase::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    filter: blur(8px);
+    z-index: -1;
+    transition: filter 0.5s ease-in-out; /* Optional: Smooth blur transition */
+}
+
+.phrase:hover {
+        cursor: pointer;
+    box-shadow: 0 0 15px 4px rgba(0, 113, 141, 0.8); /* Glowing border effect */
+}
+
+.code-create-visualize {
+    margin-top: 0px;
+    text-align: center;
+    font-family: 'Kanit', sans-serif;
+    color: white;
+
+}
+
+.phrase-para {
+    text-align: center;
+    color: #333;
+    font-family: 'Kanit', sans-serif;
+}
+
+.phrase button {
+    background-color: #006A67;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;  /* Centers the items horizontally */
+    align-items: center;  /* Centers the items vertically */
+}
+
+.phrase button:hover {
+    cursor: pointer;
+    background: #002b29;
+}
+
+.endbar {
+    width: 99%;
+    text-align: center;
+    background-color: #0e0020;  /* You can customize the background color */
+    color: white;
+    padding: 20px 0;  /* Vertical padding */
+    position: absolute;
+    border-radius: 10px;
+    margin-top: 250px;  /* Adds margin from the top */
+    font-size: 16px;  /* Adjust font size if needed */
+    font-family: 'Kanit', sans-serif;  /* Optional font family */
+}
+/* Responsive styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .about-us {
+        max-width: 97%;
+    }
+
+    .cards-container {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center;
+    }
+}
